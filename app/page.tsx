@@ -1,90 +1,102 @@
 import React from 'react';
-import { ShoppingBag, ArrowRight, Instagram, Search, Mail, Star, Heart } from 'lucide-react';
+import { ShoppingBag, ArrowRight, Instagram, Search, Mail, Star, Globe, ChevronDown } from 'lucide-react';
 
-const posts = [
-  { id: 1, cat: "FASHION", title: "2024 Capsule Wardrobe: The Essential 10", excerpt: "Master the art of minimalist elegance with our handpicked seasonal staples.", img: "https://images.unsplash.com/photo-1434389677669-e08b4cac3105?q=80&w=800" },
-  { id: 2, cat: "SHOES", title: "The Urban Edit: Sophisticated Footwear", excerpt: "From boardroom to brunch, these are the shoes every modern professional needs.", img: "https://images.unsplash.com/photo-1595950653106-6c9ebd614d3a?q=80&w=800" },
-  { id: 3, cat: "BEAUTY", title: "Glass Skin Secrets Revealed", excerpt: "Achieve the ultimate glow with our editors' tested skincare routines.", img: "https://images.unsplash.com/photo-1556228578-0d85b1a4d571?q=80&w=800" },
-  { id: 4, cat: "LIFESTYLE", title: "The Modern Sanctuary: Interior Trends", excerpt: "How to design a living space that balances productivity and peace.", img: "https://images.unsplash.com/photo-1513519245088-0e12902e35ca?q=80&w=800" },
-  { id: 5, cat: "FASHION", title: "Quiet Luxury: The New Era of Style", excerpt: "Understanding why high-quality basics are the ultimate fashion statement.", img: "https://images.unsplash.com/photo-1490481651871-ab68de25d43d?q=80&w=800" },
-  { id: 6, cat: "BEAUTY", title: "Signature Scents for Spring", excerpt: "A curated collection of fragrances that define the new season.", img: "https://images.unsplash.com/photo-1596462502278-27bfdc4033c8?q=80&w=800" }
+const articles = [
+  { id: 1, tag: "EDITORIAL", title: "The 2026 Capsule: Minimalist Mastery", desc: "Redefining modern elegance through sustainable fabrics and timeless silhouettes.", img: "https://images.unsplash.com/photo-1490481651871-ab68de25d43d?q=80&w=800" },
+  { id: 2, tag: "FOOTWEAR", title: "Sculptural Soles: The New Form", desc: "Discover why artisanal footwear is the most significant investment for your wardrobe this season.", img: "https://images.unsplash.com/photo-1549298916-b41d501d3772?q=80&w=800" },
+  { id: 3, tag: "BEAUTY", title: "Bio-Tech Beauty: Beyond the Surface", desc: "The intersection of high-science and skincare—achieving long-term cellular radiance.", img: "https://images.unsplash.com/photo-1556228578-0d85b1a4d571?q=80&w=800" },
+  { id: 4, tag: "LIFESTYLE", title: "Curated Spaces: The Zen Aesthetic", desc: "Transforming your living environment into a sanctuary of mindful design and calm.", img: "https://images.unsplash.com/photo-1513519245088-0e12902e35ca?q=80&w=800" }
 ];
 
-export default function Home() {
+export default function HomePage() {
   return (
-    <div className="min-h-screen bg-white text-slate-900 font-sans tracking-tight">
-      <div className="bg-slate-900 text-white py-2 text-center text-[10px] font-bold uppercase tracking-[0.2em]">
-        Curated Excellence • Moda Selection Media
+    <div className="min-h-screen bg-[#F9F9F7] text-[#1C1C1C] font-sans selection:bg-stone-200">
+      {/* 2026 Modern Top Bar */}
+      <div className="bg-white border-b border-stone-100 py-3 px-6 flex justify-between items-center text-[10px] font-medium tracking-[0.2em] uppercase">
+        <div className="flex items-center gap-4">
+          <span className="flex items-center gap-1"><Globe size={12}/> Global Edition</span>
+          <span className="text-stone-300">|</span>
+          <span>March 11, 2026</span>
+        </div>
+        <div className="hidden sm:block underline decoration-stone-200">Free Curated Shipping on Orders Over $250</div>
       </div>
 
-      <nav className="border-b sticky top-0 bg-white/90 backdrop-blur-md z-50 px-6">
-        <div className="max-w-7xl mx-auto h-20 flex items-center justify-between">
-          <div className="text-2xl font-serif font-black italic tracking-tighter">MODA SELECTION</div>
-          <div className="hidden md:flex space-x-10 text-[11px] font-bold uppercase tracking-widest text-slate-500">
-            <a href="#" className="hover:text-black transition">Fashion</a>
-            <a href="#" className="hover:text-black transition">Shoes</a>
-            <a href="#" className="hover:text-black transition">Beauty</a>
-            <a href="#" className="hover:text-black transition italic text-amber-700">Disclosure</a>
-          </div>
-          <div className="flex items-center space-x-5 text-slate-400">
-            <Search size={18} />
-            <ShoppingBag size={18} />
+      {/* Hero Logo Section */}
+      <nav className="py-12 px-6 bg-white">
+        <div className="max-w-7xl mx-auto flex flex-col items-center">
+          <h1 className="text-5xl md:text-7xl font-serif font-black tracking-tighter italic mb-8">MODA SELECTION</h1>
+          <div className="flex space-x-12 text-[11px] font-bold uppercase tracking-[0.2em] text-stone-400">
+            <a href="#" className="hover:text-black transition-colors">Fashion</a>
+            <a href="#" className="hover:text-black transition-colors">Shoes</a>
+            <a href="#" className="hover:text-black transition-colors">Beauty</a>
+            <a href="#" className="hover:text-black transition-colors italic text-amber-900">Affiliate Edit</a>
           </div>
         </div>
       </nav>
 
-      <header className="py-24 text-center px-6 bg-slate-50">
-        <span className="text-amber-800 text-[10px] font-black tracking-[0.4em] uppercase mb-4 block underline underline-offset-8 decoration-1">The 2024 Collection</span>
-        <h1 className="text-5xl md:text-7xl font-serif italic mb-8 max-w-4xl mx-auto leading-tight">Defining the modern aesthetic through expert curation.</h1>
-        <p className="max-w-lg mx-auto text-slate-500 text-sm italic">"Style is a way to say who you are without having to speak."</p>
-      </header>
+      {/* Featured Large Cover */}
+      <section className="max-w-7xl mx-auto px-6 mb-24">
+        <div className="relative group cursor-pointer overflow-hidden">
+          <img 
+            src="https://images.unsplash.com/photo-1441984904996-e0b6ba687e04?q=80&w=2000" 
+            className="w-full h-[70vh] object-cover transition-transform duration-[2s] group-hover:scale-105"
+            alt="Hero"
+          />
+          <div className="absolute inset-0 bg-black/10 group-hover:bg-black/20 transition-colors" />
+          <div className="absolute bottom-12 left-12 text-white max-w-xl">
+            <span className="text-[10px] font-black tracking-[0.3em] uppercase mb-4 block">Season Feature</span>
+            <h2 className="text-4xl md:text-6xl font-serif italic leading-none mb-6 text-white">The Future of Conscious Luxury</h2>
+            <button className="flex items-center gap-3 text-[10px] font-bold uppercase tracking-widest border-b border-white pb-2 hover:gap-6 transition-all">
+              Explore the story <ArrowRight size={14}/>
+            </button>
+          </div>
+        </div>
+      </section>
 
-      <main className="max-w-7xl mx-auto px-6 py-24">
-        <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-x-12 gap-y-20">
-          {posts.map((p) => (
-            <div key={p.id} className="group flex flex-col">
-              <div className="aspect-[3/4] overflow-hidden mb-8 bg-slate-100 relative">
-                <img src={p.img} alt={p.title} className="w-full h-full object-cover group-hover:scale-105 transition duration-1000" />
-                <div className="absolute top-4 left-4 bg-white/90 px-3 py-1 text-[9px] font-black tracking-widest uppercase">New Story</div>
+      {/* Article Grid */}
+      <main className="max-w-7xl mx-auto px-6 pb-32">
+        <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-8">
+          {articles.map((item) => (
+            <div key={item.id} className="group cursor-pointer">
+              <div className="aspect-[3/4] overflow-hidden mb-6 bg-stone-200">
+                <img src={item.img} className="w-full h-full object-cover grayscale hover:grayscale-0 transition-all duration-700" alt={item.title} />
               </div>
-              <span className="text-[10px] font-black tracking-[0.2em] text-amber-900 mb-3">{p.cat}</span>
-              <h2 className="text-2xl font-serif mb-4 leading-tight group-hover:underline decoration-1">{p.title}</h2>
-              <p className="text-slate-500 text-[13px] leading-relaxed mb-6 italic">"{p.excerpt}"</p>
-              <div className="mt-auto flex items-center text-[10px] font-bold uppercase tracking-widest group-hover:translate-x-2 transition-transform">
-                Read Story <ArrowRight size={14} className="ml-2" />
+              <span className="text-[9px] font-black tracking-widest text-amber-900 uppercase mb-3 block">{item.tag}</span>
+              <h3 className="text-xl font-serif mb-3 leading-tight group-hover:text-stone-500">{item.title}</h3>
+              <p className="text-stone-400 text-xs leading-relaxed mb-6 font-light italic">"{item.desc}"</p>
+              <div className="flex items-center text-[10px] font-bold uppercase tracking-widest group-hover:gap-3 transition-all">
+                Read More <ArrowRight size={12} className="ml-1" />
               </div>
             </div>
           ))}
         </div>
       </main>
 
-      <section className="bg-slate-900 text-white py-24 px-6 text-center">
-        <Mail className="mx-auto mb-8 text-amber-500" size={32} strokeWidth={1.5} />
-        <h2 className="text-3xl font-serif italic mb-6">Join Our Global Community</h2>
-        <p className="max-w-md mx-auto text-slate-400 text-sm mb-10 leading-relaxed font-light">
-          Get weekly trend reports, exclusive shopping guides, and early access to our curated selections.
-        </p>
-        <div className="max-w-sm mx-auto flex gap-2">
-          <input type="email" placeholder="Email Address" className="flex-1 bg-transparent border-b border-slate-700 py-3 text-sm focus:outline-none focus:border-amber-500 transition" />
-          <button className="text-[11px] font-black uppercase tracking-widest hover:text-amber-500 transition">Subscribe</button>
+      {/* Affiliate Trust Section */}
+      <section className="bg-stone-100 py-32 px-6 border-y border-stone-200">
+        <div className="max-w-3xl mx-auto text-center">
+          <Star className="mx-auto mb-8 text-stone-300" size={40} strokeWidth={1}/>
+          <h2 className="text-3xl font-serif italic mb-8 underline decoration-stone-300 underline-offset-8">Editorial Transparency</h2>
+          <p className="text-stone-500 text-sm leading-loose mb-12 italic">
+            Moda Selection provides independent, expertly-vetted reviews of lifestyle products. We curate only what we love. Please note that we may earn a commission when you purchase through our links, supporting our high-standard journalism at no extra cost to you.
+          </p>
+          <div className="flex justify-center gap-4">
+            <button className="bg-black text-white px-10 py-4 text-[10px] font-bold uppercase tracking-widest">Our Standards</button>
+            <button className="border border-stone-300 px-10 py-4 text-[10px] font-bold uppercase tracking-widest hover:bg-white transition">Contact Us</button>
+          </div>
         </div>
       </section>
 
-      <footer className="py-20 px-6 border-t bg-white">
-        <div className="max-w-7xl mx-auto grid md:grid-cols-3 gap-12 items-center">
-          <div className="text-xl font-serif font-black italic">MODA SELECTION</div>
-          <div className="flex justify-center space-x-8 text-[10px] font-bold uppercase tracking-widest text-slate-400">
-            <a href="#">About</a>
-            <a href="#">Privacy</a>
-            <a href="#" className="text-amber-900">Affiliate Disclosure</a>
-          </div>
-          <div className="flex justify-center md:justify-end space-x-6 text-slate-400">
-            <Instagram size={18} /> <Heart size={18} />
-          </div>
+      {/* Footer */}
+      <footer className="py-20 px-6 bg-white text-center">
+        <div className="text-2xl font-serif font-black italic mb-10 tracking-tighter">MODA SELECTION</div>
+        <div className="flex flex-wrap justify-center gap-x-12 gap-y-4 text-[10px] font-bold uppercase tracking-[0.2em] text-stone-400 mb-12">
+          <a href="#" className="hover:text-black">Privacy Policy</a>
+          <a href="#" className="hover:text-black">Terms of Service</a>
+          <a href="#" className="hover:text-black">Affiliate Disclosure</a>
+          <a href="#" className="hover:text-black">Editorial Policy</a>
         </div>
-        <div className="mt-16 text-center text-[9px] text-zinc-300 tracking-[0.3em] uppercase">
-          © 2024 Moda Selection Media • Powered by Elegance
-        </div>
+        <p className="text-[8px] text-stone-300 tracking-[0.4em] uppercase">© 2026 Moda Selection Media. Curating the Future.</p>
       </footer>
     </div>
   );
